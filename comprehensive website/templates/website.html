@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <meta name = "author" content="Muhammed Emir Kara">
+    <title>Arduino Project-Group08</title>
+    <style>
+    
+    
+        *{
+    color: #fff;
+}
+
+html ,body {
+
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+li {
+    list-style: none;
+}
+
+header {
+    width: 100%;
+    height: 60px;
+    line-height: 50px;
+    text-align: center;
+    font-family: sans-serif;
+    background-color: #008184;
+}
+.isim {
+    width: auto;
+    height: 100%;
+    float: left;
+    margin: 5px 0 0 5%;
+}
+.menu {
+    width: 60%;
+    height: 100%;
+    float: right;
+}
+.menu ul {
+    width: 100%;
+    height: inherit;
+    margin: 0;
+    padding: 0;
+    display: -webkit-box;      
+    display: -moz-box;         
+    display: -ms-flexbox;      
+    display: -webkit-flex;     
+    display: flex;             
+}
+.menu ul a {
+    width: 20%;
+    height: inherit;
+    color: #005C5F;
+    display: inline-block;
+    margin: 5px 0 0 0;
+}
+.menu ul a:hover {
+    background-color: #005C5F;
+    color: #fff;
+}
+#menuToggle {
+    display: none;
+}
+.menu-icon {
+    display: none;
+}
+
+.center{
+    width: 55%;
+    display: block;
+    margin: 0 auto;
+}
+.arduinoblue{
+    background-color: #008184;
+}
+#intro{
+    height: auto;
+    width: 100%;
+    text-align: center;
+
+}
+.container{
+    background-color: white;
+}
+.container h2 {
+    text-align: center;
+    color :#008184;
+
+}
+.artic{
+    display: inline-block;
+    width: 25%;
+    height: 300px;
+    margin-right: 8%;
+    margin-left: 8%;
+    margin-bottom: 40px;
+    color: #008184;
+    overflow: scroll;
+}
+.image1{
+    margin-bottom: 40px;
+}
+.imptext{
+    text-align: center;
+    font-size: 1.5em;
+    margin-right: 15%;
+    margin-left: 15%;
+    color: black;
+}
+input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+  }
+  
+  input[type=submit] {
+    background-color: #04AA6D;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }
+  #contact{
+    width: 100%;
+    text-align: center;
+    background-color: #f2f2f2;
+  }
+#control{
+    margin: auto;
+
+}
+  .backDoor
+  {
+    background-color: #333;
+    position:relative;
+    width:200px;
+    height:300px;
+    
+    margin: 0 auto;
+    margin-top:50px;
+  }
+  
+  .door
+  {
+    background-color: black;
+    position:relative;
+    top:0px;
+    left:0px;
+    width:200px;
+    height:300px;
+   
+    transform-origin: left;
+    transition: all 0.5s ease-in-out;
+  }
+  
+  .doorOpen
+  {
+    transform: perspective(1200px) translateZ(0px) translateX(0px) translateY(0px) rotateY(-105deg);
+
+  }
+  .liste{
+    background-color: white;
+    border-left: 5px solid blue;
+    list-style-type: circle;
+}
+#image2{
+    max-width: 100%;
+    max-height: 100%;
+    background-color: blue;
+    background-blend-mode: multiply;
+
+}
+  
+
+
+
+
+@media screen and (max-width: 768px) {
+    .menu {
+        width: 100%;
+        height: auto;
+    }
+    .menu ul {
+        display: block;
+        max-height: 0;
+    	overflow: hidden;
+    	-webkit-transition: max-height 0.3s;
+    	-moz-transition: max-height 0.3s;
+        -ms-transition: max-height 0.3s;
+        -o-transition: max-height 0.3s;
+    	transition: max-height 0.3s;
+    }
+    .menu ul a {
+        text-align: left;
+        width: 100%;
+        height: 50px;
+        background-color: #008184;
+        padding: 10px 0px 10px 5%;
+    }
+    .menu-icon {
+        width: 100px;
+        height: inherit;
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        line-height: 60px;
+    }
+    #menuToggle:checked ~ ul {
+        max-height: 350px;
+    }
+    .menu-icon i {
+        font-size: 1.7em;
+    }
+    .artic{
+    
+    display: block;
+    width: 50%;
+    height: 250px;
+    margin-right: 25%;
+    margin-left: 25%;
+    margin-bottom: 40px;
+    color: #008184;
+    overflow: scroll;
+}
+}
+    </style>
+
+
+
+</head>
+<body>
+    <header>
+        <figure class="isim">Arduino Project</figure>
+        <nav class="menu">
+            <input type="checkbox" id="menuToggle">
+            <label for="menuToggle" class="menu-icon"><i class="fa fa-bars"></i></label>
+            <ul>
+                <a href=""><li>Home</li></a>
+                <a href="#intro"><li>Introduction</li></a>
+                <a href="#control"><li>Control</li></a>
+                <a href="#devers"><li>Developers</li></a>
+                <a href="#contact"><li>Contact</li></a>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <img src="{{url_for('static', filename='deneme.jpg')}}" class="center">
+
+    </section>
+
+    <section id="intro" class="arduinoblue">
+        <h2>Introduction</h2>
+        <div class = "container" >
+            <br>
+            <h2>Components</h2>
+            <br><br><br>
+            <article class = "artic">
+                <img src="" alt="Component">
+                <h3 style="color:black" >Name</h3>
+                <p style="color:gray"><strong style="color: black;">Purpose:</strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis reprehenderit fugit dolorum! Sit incidunt quasi ab impedit voluptate corporis ad nesciunt accusantium quis doloremque voluptatum labore veniam aliquam numquam nulla quisquam odit temporibus, facilis error quae fuga beatae iusto? Aliquam inventore eos est mollitia, culpa eaque distinctio natus nobis ullam sapiente sunt veritatis unde dolore ipsa vero quisquam placeat nostrum odit! At debitis ipsam sunt iste libero ut quo quidem alias, est dicta exercitationem, quisquam repellat accusantium consequatur tenetur corporis consequuntur ex! Quae, nulla reprehenderit ipsum illo, itaque error vel dicta dignissimos sed adipisci saepe. Laboriosam praesentium ipsum distinctio at.</p>
+
+            </article>
+            <article class = "artic">
+                <img src="" alt="Component">
+                <h3 style="color:black" >Name</h3>
+                <p style="color:gray"><strong style="color: black;">Purpose:</strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis reprehenderit fugit dolorum! Sit incidunt quasi ab impedit voluptate corporis ad nesciunt accusantium quis doloremque voluptatum labore veniam aliquam numquam nulla quisquam odit temporibus, facilis error quae fuga beatae iusto? Aliquam inventore eos est mollitia, culpa eaque distinctio natus nobis ullam sapiente sunt veritatis unde dolore ipsa vero quisquam placeat nostrum odit! At debitis ipsam sunt iste libero ut quo quidem alias, est dicta exercitationem, quisquam repellat accusantium consequatur tenetur corporis consequuntur ex! Quae, nulla reprehenderit ipsum illo, itaque error vel dicta dignissimos sed adipisci saepe. Laboriosam praesentium ipsum distinctio at.</p>
+
+            </article>
+
+            <article class = "artic">
+                <img src="" alt="Component">
+                <h3 style="color:black" >Name</h3>
+                <p style="color:gray"><strong style="color: black;">Purpose:</strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis reprehenderit fugit dolorum! Sit incidunt quasi ab impedit voluptate corporis ad nesciunt accusantium quis doloremque voluptatum labore veniam aliquam numquam nulla quisquam odit temporibus, facilis error quae fuga beatae iusto? Aliquam inventore eos est mollitia, culpa eaque distinctio natus nobis ullam sapiente sunt veritatis unde dolore ipsa vero quisquam placeat nostrum odit! At debitis ipsam sunt iste libero ut quo quidem alias, est dicta exercitationem, quisquam repellat accusantium consequatur tenetur corporis consequuntur ex! Quae, nulla reprehenderit ipsum illo, itaque error vel dicta dignissimos sed adipisci saepe. Laboriosam praesentium ipsum distinctio at.</p>
+
+            </article>
+
+            <article class = "artic">
+                <img src="" alt="Component">
+                <h3 style="color:black" >Name</h3>
+                <p style="color:gray"><strong style="color: black;">Purpose:</strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis reprehenderit fugit dolorum! Sit incidunt quasi ab impedit voluptate corporis ad nesciunt accusantium quis doloremque voluptatum labore veniam aliquam numquam nulla quisquam odit temporibus, facilis error quae fuga beatae iusto? Aliquam inventore eos est mollitia, culpa eaque distinctio natus nobis ullam sapiente sunt veritatis unde dolore ipsa vero quisquam placeat nostrum odit! At debitis ipsam sunt iste libero ut quo quidem alias, est dicta exercitationem, quisquam repellat accusantium consequatur tenetur corporis consequuntur ex! Quae, nulla reprehenderit ipsum illo, itaque error vel dicta dignissimos sed adipisci saepe. Laboriosam praesentium ipsum distinctio at.</p>
+
+            </article>
+
+            <article class = "artic">
+                <img src="" alt="Component">
+                <h3 style="color:black" >Name</h3>
+                <p style="color:gray"><strong style="color: black;">Purpose:</strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis reprehenderit fugit dolorum! Sit incidunt quasi ab impedit voluptate corporis ad nesciunt accusantium quis doloremque voluptatum labore veniam aliquam numquam nulla quisquam odit temporibus, facilis error quae fuga beatae iusto? Aliquam inventore eos est mollitia, culpa eaque distinctio natus nobis ullam sapiente sunt veritatis unde dolore ipsa vero quisquam placeat nostrum odit! At debitis ipsam sunt iste libero ut quo quidem alias, est dicta exercitationem, quisquam repellat accusantium consequatur tenetur corporis consequuntur ex! Quae, nulla reprehenderit ipsum illo, itaque error vel dicta dignissimos sed adipisci saepe. Laboriosam praesentium ipsum distinctio at.</p>
+
+            </article>
+
+        <h2>schematic diagram</h2> <br>
+        <img src="" alt="schematic diagram" class="image1">
+        <h2>Explanation</h2>
+        <p class = "imptext" >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod iure fuga, nobis odit assumenda soluta voluptates debitis earum ducimus mollitia error vitae illo dignissimos? Sapiente doloribus nihil eligendi vitae rerum.</p>
+
+
+        </div>
+
+    </section>
+
+    <section id="control" class="arduinoblue">
+        <h2 style="text-align: center;">Control of Door</h2>
+
+        {% if state == "opened" %}
+        <form  id="datata-form" class="backDoor" method = "POST" action="/#control">
+            <input   type="submit" name = "bt" id = "bt" class="door doorOpen" value = "opened" onclick="toggleDoor()" >
+
+        </form>   
+        {% else %}
+
+        <form  id="datata-form" class="backDoor" method = "POST" action="/#control">
+            <input  type="submit" name = "bt" id = "bt" class="door" value = "closed" onclick="toggleDoor()" >
+        </form>   
+
+        {% endif %}
+
+
+
+            <script>
+
+
+
+        function toggleDoor() {
+            document.getElementById("bt").classList.toggle("doorOpen");
+            if (document.getElementById("bt").className == "door"){
+                document.getElementById("bt").value = "closed"
+            }else{
+                document.getElementById("bt").value = "opened"
+            }
+        }
+        
+                
+            </script>
+
+
+    </section>
+
+    <section id="devers" class="arduinoblue">
+        <h2>Developers</h2>
+        <ul class = "liste" >
+            <li style="color:#008184">Muhammed Emir Kara</li>
+            <li style="color:#008184">Abdullah Türkmen</li>
+            <li style="color:#008184">Ahmet Fettahoğlu</li>
+            <li style="color:#008184">Elyesa</li>
+            <li style="color:#008184">Emre Durmaz</li>
+            <li style="color:#008184">Enis Okunakol</li>
+            <li style="color:#008184">Mehmet Melikşah Çalişkan</li>
+            <li style="color:#008184">Mert Uğur</li>
+            <li style="color:#008184">Umut Satir</li>
+            <li style="color:#008184">Cem</li>
+        </ul>
+
+    </section>
+
+    <section id="contact" class="arduinoblue">
+        <h2 class="arduinoblue">Contact</h2>
+        <form action="/action_page.php">
+            <label style="color : black" for="fname">Name</label>
+            <input type="text" id="fname" name="name" placeholder="Your name..">
+        
+        
+            <label style="color : black" for="advice">Advice</label>
+            <textarea id="advice" name="advice" placeholder="Write something.." style="height:200px"></textarea>
+        
+            <input type="submit" value="Submit">
+          </form>
+    </section>
+</body>
+</html>
