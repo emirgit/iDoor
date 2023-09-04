@@ -32,9 +32,9 @@ To deploy this project run
 ## Tech Stack
 **Compenents** Arduino Uno, Servo motor, RFID module, ESP8266 ESP-01 wifi shield
 
-**Arduino** C++
+**Arduino** C
 
-**Client:** HTML, CSS, Bootstrap
+**Client:** HTML, CSS, Bootstrap, FlexBox
 
 **Server:** Javascript, Python, PHP
 
