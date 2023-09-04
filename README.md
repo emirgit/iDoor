@@ -34,7 +34,7 @@ To deploy this project run
 
 **Arduino** C
 
-**Client:** HTML, CSS, Bootstrap, FlexBox
+**Client:** HTML, CSS, Bootstrap, Flexbox
 
 **Server:** Javascript, Python, PHP
 
