@@ -22,8 +22,9 @@ An Arduino project that allows you to open a door using an RFID card is a great 
 To deploy this project run
 
 ```bash
-  git clone https://github.com/AbduNaber/Idoor
+  git clone https://github.com/emirgit/iDoor
   cd idoor
+  python project.py
 ```
 
 
